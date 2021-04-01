@@ -1,7 +1,7 @@
 SELECT *
 FROM emp;
 -------------------- 1 -------------------------
-SELECT ename, hiredate, TRUNC((sysdate - hiredate) / 365) AS "±Ÿº”ø¨ºˆ"
+SELECT ename, hiredate, TRUNC((sysdate - hiredate) / 365) AS "Í∑ºÏÜçÏó∞Ïàò"
 FROM emp;
 
 -----------------2 -------------------------
@@ -14,28 +14,28 @@ FROM emp
 WHERE sal * NVL(comm, 0) < 1000000;
 
 -------------------- 4 -------------------------
-SELECT empno, ename, sal, NVL(TO_CHAR(comm),'«ÿ¥Áæ¯¿Ω')
-FROM emp;  --  NVL ªÁøÎ
+SELECT empno, ename, sal, NVL(TO_CHAR(comm),'Ìï¥ÎãπÏóÜÏùå')
+FROM emp;  --  NVL ÏÇ¨Ïö©
 
-SELECT empno, ename, sal, DECODE(comm , null , '«ÿ¥Áæ¯¿Ω', comm)
-FROM emp; -- DECODE ªÁøÎ
+SELECT empno, ename, sal, DECODE(comm , null , 'Ìï¥ÎãπÏóÜÏùå', comm)
+FROM emp; -- DECODE ÏÇ¨Ïö©
 
 SELECT empno, ename, sal, 
 CASE
-WHEN comm is null THEN '«ÿ¥Áæ¯¿Ω'
+WHEN comm is null THEN 'Ìï¥ÎãπÏóÜÏùå'
 ELSE TO_CHAR(comm)
 END AS comm
-FROM emp; -- CASE ªÁøÎ
+FROM emp; -- CASE ÏÇ¨Ïö©
 
 -------------------- 5 -------------------------
-SELECT ename, hiredate, TRUNC((SYSDATE - hiredate) / 365) AS "±Ÿº”ø¨ºˆ",
+SELECT ename, hiredate, TRUNC((SYSDATE - hiredate) / 365) AS "Í∑ºÏÜçÏó∞Ïàò",
 CASE TRUNC((SYSDATE - hiredate) / 365)
 WHEN 10 THEN '10'
 WHEN 20 THEN '20'
 WHEN 30 THEN '30'
 WHEN 40 THEN '40'
 ELSE '*'
-END AS "»≤±›ø≠ºË¥ÎªÛ¿⁄"
+END AS "Ìô©Í∏àÏó¥Ïá†ÎåÄÏÉÅÏûê"
 FROM emp;
 
 -------------------- 6 -------------------------
@@ -44,11 +44,11 @@ CASE
 WHEN job = 'CLERK' THEN ROUND(sal*1.2)
 WHEN job = 'MANAGER' THEN ROUND(sal*1.5)
 ELSE sal
-END AS "¿ŒªÛµ» sal"
+END AS "Ïù∏ÏÉÅÎêú sal"
 FROM emp;
 
 -------------------- 7 -------------------------
-CREATE TABLE testemp as SELECT *        -- CTAS ªÁøÎ
+CREATE TABLE testemp as SELECT *        -- CTAS ÏÇ¨Ïö©
 FROM emp;
 
 SELECT * 
@@ -67,5 +67,5 @@ WHEN sal+sal*nvl(comm, 0) >= 1000000 THEN 'good'
 WHEN sal+sal*nvl(comm, 0) >= 5000 THEN 'average'
 WHEN sal+sal*nvl(comm, 0) between 1 and 4999 THEN 'bad'
 WHEN sal+sal*nvl(comm, 0) = 0 THEN 'no good'
-END AS "∆Ú∞°"
+END AS "ÌèâÍ∞Ä"
 FROM emp;
